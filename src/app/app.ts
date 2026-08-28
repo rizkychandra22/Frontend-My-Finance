@@ -1,10 +1,10 @@
 import { Component, signal, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login';
-import { DashboardComponent } from './dashboard/dashboard';
+import { MainComponent } from './main/main';
 
 @Component({
-  imports: [CommonModule, LoginComponent, DashboardComponent],
+  imports: [CommonModule, LoginComponent, MainComponent],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
