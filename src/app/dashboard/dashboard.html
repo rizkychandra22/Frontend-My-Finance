@@ -1,38 +1,38 @@
 <div [ngClass]="isDarkMode() ? 'bg-slate-950 text-slate-100' : 'bg-[#FAF8F5] text-slate-800'" class="min-h-screen md:h-screen md:overflow-hidden flex transition-colors duration-300 pb-20 md:pb-0">
 
-  <!-- ================= DESKTOP SIDEBAR ================= -->
+  <!-- ================= DESKTOP SIDEBAR (Minimalist w-56) ================= -->
   <aside 
     [ngClass]="[
       isDarkMode() ? 'bg-slate-900/30 border-slate-900 text-slate-400' : 'bg-white border-slate-200 text-slate-600',
-      isSidebarCollapsed() ? 'w-20 px-3 py-6' : 'w-64 p-6'
+      isSidebarCollapsed() ? 'w-16 px-2 py-4' : 'w-56 p-4'
     ]"
     class="hidden md:flex flex-col justify-between h-screen sticky top-0 border-r flex-shrink-0 transition-all duration-300"
   >
-    <div class="space-y-8">
-      <!-- Logo App -->
-      <div class="flex items-center gap-3 transition-all duration-300" [ngClass]="isSidebarCollapsed() ? 'justify-center' : ''">
-        <div class="w-10 h-10 rounded-xl bg-blue-600/10 border border-blue-500/30 text-blue-500 text-lg font-bold flex items-center justify-center shadow-inner flex-shrink-0">
+    <div class="space-y-6">
+      <!-- Logo App (Compact) -->
+      <div class="flex items-center gap-2.5 transition-all duration-300" [ngClass]="isSidebarCollapsed() ? 'justify-center' : ''">
+        <div class="w-8 h-8 rounded-lg bg-blue-600/10 border border-blue-500/30 text-blue-500 text-base font-bold flex items-center justify-center shadow-inner flex-shrink-0">
           MF
         </div>
         <div *ngIf="!isSidebarCollapsed()" class="transition-all duration-300">
-          <h1 [ngClass]="isDarkMode() ? 'text-slate-100' : 'text-slate-900'" class="text-md font-bold tracking-tight">My-Finance</h1>
-          <p class="text-[9px] text-slate-400 font-semibold uppercase tracking-wider">Manajemen Keuangan</p>
+          <h1 [ngClass]="isDarkMode() ? 'text-slate-100' : 'text-slate-900'" class="text-sm font-bold tracking-tight">My-Finance</h1>
+          <p class="text-[8px] text-slate-400 font-semibold uppercase tracking-wider">Manajemen Keuangan</p>
         </div>
       </div>
 
-      <!-- Navigation List -->
-      <nav class="space-y-6">
+      <!-- Navigation List (Tighter space-y-4) -->
+      <nav class="space-y-4">
         <!-- Group 1: Ikhtisar -->
-        <div class="space-y-2">
-          <p *ngIf="!isSidebarCollapsed()" class="text-[10px] font-bold uppercase tracking-widest text-slate-400/80">Ikhtisar</p>
-          <div class="space-y-1">
+        <div class="space-y-1.5">
+          <p *ngIf="!isSidebarCollapsed()" class="text-[9px] font-bold uppercase tracking-widest text-slate-400/80 px-1">Ikhtisar</p>
+          <div class="space-y-0.5">
             <button 
               (click)="setActiveTab('dashboard')"
               [ngClass]="[
                 activeTab() === 'dashboard' ? (isDarkMode() ? 'bg-slate-900 text-slate-100 border-l-2 border-blue-500' : 'bg-slate-100 text-slate-900 border-l-2 border-blue-600') : 'hover:bg-slate-100/50 dark:hover:bg-slate-900/50',
-                isSidebarCollapsed() ? 'justify-center px-0' : 'px-3'
+                isSidebarCollapsed() ? 'justify-center px-0' : 'px-2.5'
               ]"
-              class="w-full text-left py-2.5 rounded-lg text-xs font-semibold flex items-center gap-3 transition-all cursor-pointer"
+              class="w-full text-left py-2 rounded-lg text-[11px] font-semibold flex items-center gap-2.5 transition-all cursor-pointer"
               [title]="isSidebarCollapsed() ? 'Dashboard' : ''"
             >
               <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -44,9 +44,9 @@
               (click)="setActiveTab('analitik')"
               [ngClass]="[
                 activeTab() === 'analitik' ? (isDarkMode() ? 'bg-slate-900 text-slate-100 border-l-2 border-blue-500' : 'bg-slate-100 text-slate-900 border-l-2 border-blue-600') : 'hover:bg-slate-100/50 dark:hover:bg-slate-900/50',
-                isSidebarCollapsed() ? 'justify-center px-0' : 'px-3'
+                isSidebarCollapsed() ? 'justify-center px-0' : 'px-2.5'
               ]"
-              class="w-full text-left py-2.5 rounded-lg text-xs font-semibold flex items-center gap-3 transition-all cursor-pointer"
+              class="w-full text-left py-2 rounded-lg text-[11px] font-semibold flex items-center gap-2.5 transition-all cursor-pointer"
               [title]="isSidebarCollapsed() ? 'Analitik Grafik' : ''"
             >
               <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -58,16 +58,16 @@
         </div>
 
         <!-- Group 2: Manajemen -->
-        <div class="space-y-2">
-          <p *ngIf="!isSidebarCollapsed()" class="text-[10px] font-bold uppercase tracking-widest text-slate-400/80">Manajemen</p>
-          <div class="space-y-1">
+        <div class="space-y-1.5">
+          <p *ngIf="!isSidebarCollapsed()" class="text-[9px] font-bold uppercase tracking-widest text-slate-400/80 px-1">Manajemen</p>
+          <div class="space-y-0.5">
             <button 
               (click)="setActiveTab('rekening')"
               [ngClass]="[
                 activeTab() === 'rekening' ? (isDarkMode() ? 'bg-slate-900 text-slate-100 border-l-2 border-blue-500' : 'bg-slate-100 text-slate-900 border-l-2 border-blue-600') : 'hover:bg-slate-100/50 dark:hover:bg-slate-900/50',
-                isSidebarCollapsed() ? 'justify-center px-0' : 'px-3'
+                isSidebarCollapsed() ? 'justify-center px-0' : 'px-2.5'
               ]"
-              class="w-full text-left py-2.5 rounded-lg text-xs font-semibold flex items-center gap-3 transition-all cursor-pointer"
+              class="w-full text-left py-2 rounded-lg text-[11px] font-semibold flex items-center gap-2.5 transition-all cursor-pointer"
               [title]="isSidebarCollapsed() ? 'Data Rekening' : ''"
             >
               <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -79,9 +79,9 @@
               (click)="setActiveTab('transaksi')"
               [ngClass]="[
                 activeTab() === 'transaksi' ? (isDarkMode() ? 'bg-slate-900 text-slate-100 border-l-2 border-blue-500' : 'bg-slate-100 text-slate-900 border-l-2 border-blue-600') : 'hover:bg-slate-100/50 dark:hover:bg-slate-900/50',
-                isSidebarCollapsed() ? 'justify-center px-0' : 'px-3'
+                isSidebarCollapsed() ? 'justify-center px-0' : 'px-2.5'
               ]"
-              class="w-full text-left py-2.5 rounded-lg text-xs font-semibold flex items-center gap-3 transition-all cursor-pointer"
+              class="w-full text-left py-2 rounded-lg text-[11px] font-semibold flex items-center gap-2.5 transition-all cursor-pointer"
               [title]="isSidebarCollapsed() ? 'Transaksi Log' : ''"
             >
               <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -94,26 +94,26 @@
       </nav>
     </div>
 
-    <!-- Desktop Profile Box -->
-    <div [ngClass]="[isDarkMode() ? 'border-slate-800' : 'border-slate-200', isSidebarCollapsed() ? 'justify-center' : 'justify-between']" class="pt-4 border-t flex items-center">
-      <div class="flex items-center gap-3 min-w-0">
-        <div class="w-8 h-8 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center text-xs shadow flex-shrink-0">
+    <!-- Desktop Profile Box (Compact) -->
+    <div [ngClass]="[isDarkMode() ? 'border-slate-800' : 'border-slate-200', isSidebarCollapsed() ? 'justify-center' : 'justify-between']" class="pt-3 border-t flex items-center">
+      <div class="flex items-center gap-2 min-w-0">
+        <div class="w-7 h-7 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center text-[10px] shadow flex-shrink-0">
           RC
         </div>
         <div *ngIf="!isSidebarCollapsed()" class="flex flex-col min-w-0 transition-all duration-300">
-          <span [ngClass]="isDarkMode() ? 'text-slate-200' : 'text-slate-800'" class="text-xs font-bold truncate block">{{ username() }}</span>
-          <span class="text-[9px] text-slate-400 truncate block">Personal Planner</span>
+          <span [ngClass]="isDarkMode() ? 'text-slate-200' : 'text-slate-800'" class="text-[11px] font-bold truncate block">{{ username() }}</span>
+          <span class="text-[8px] text-slate-400 truncate block">Personal Planner</span>
         </div>
       </div>
       <button 
         *ngIf="!isSidebarCollapsed()"
         (click)="onLogout()" 
         [ngClass]="isDarkMode() ? 'hover:bg-slate-800 text-slate-400 hover:text-white' : 'hover:bg-slate-100 text-slate-500 hover:text-slate-900'"
-        class="p-1.5 rounded-lg transition-colors cursor-pointer flex-shrink-0" 
+        class="p-1 rounded-lg transition-colors cursor-pointer flex-shrink-0" 
         aria-label="Logout"
         title="Logout"
       >
-        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
         </svg>
       </button>
@@ -123,10 +123,10 @@
   <!-- ================= MAIN LAYOUT AREA ================= -->
   <div class="flex-grow flex flex-col min-w-0 md:h-screen md:overflow-hidden">
     
-    <!-- DESKTOP TOP HEADER (Hidden on Mobile) -->
+    <!-- DESKTOP TOP HEADER (Compact px-6 py-3) -->
     <header 
       [ngClass]="isDarkMode() ? 'bg-slate-950/70 border-slate-900' : 'bg-white border-slate-200'"
-      class="hidden md:flex items-center justify-between px-8 py-4 border-b transition-colors duration-300"
+      class="hidden md:flex items-center justify-between px-6 py-3 border-b transition-colors duration-300"
     >
       <!-- Left Controls (Collapse Toggle & Breadcrumbs) -->
       <div class="flex items-center">
@@ -134,17 +134,16 @@
         <button 
           (click)="toggleSidebar()" 
           [ngClass]="isDarkMode() ? 'hover:bg-slate-900 text-slate-400' : 'hover:bg-slate-100 text-slate-600'" 
-          class="p-2 rounded-xl transition-all cursor-pointer mr-4 flex items-center justify-center focus:outline-none"
+          class="p-1.5 rounded-lg transition-all cursor-pointer mr-3 flex items-center justify-center focus:outline-none"
           title="Toggle Navigasi"
         >
           <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <!-- Sidebar layout toggle icon -->
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2" />
           </svg>
         </button>
 
         <!-- Breadcrumbs -->
-        <div class="flex items-center gap-2 text-xs font-semibold text-slate-400">
+        <div class="flex items-center gap-1.5 text-[11px] font-semibold text-slate-400">
           <span>Dashboard</span>
           <span>&rsaquo;</span>
           <span [ngClass]="isDarkMode() ? 'text-slate-200' : 'text-slate-700'" class="capitalize">
@@ -154,24 +153,24 @@
       </div>
 
       <!-- Right Side Actions -->
-      <div class="flex items-center gap-6">
-        <!-- Search bar -->
+      <div class="flex items-center gap-4">
+        <!-- Search bar (Compact width) -->
         <div class="relative">
           <input 
             type="text" 
-            placeholder="Cari transaksi..."
+            placeholder="Cari..."
             [ngClass]="isDarkMode() ? 'bg-slate-900 border-slate-800 placeholder-slate-600 text-slate-350' : 'bg-slate-100 border-slate-200 placeholder-slate-400 text-slate-700'"
-            class="pl-8 pr-4 py-1.5 border rounded-lg text-xs w-48 focus:outline-none focus:w-60 transition-all duration-200"
+            class="pl-7 pr-3 py-1 border rounded-lg text-[11px] w-36 focus:w-44 transition-all duration-200 focus:outline-none"
           />
-          <svg class="w-3.5 h-3.5 absolute left-2.5 top-2.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg class="w-3 h-3 absolute left-2.5 top-2 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
         </div>
 
-        <!-- Notification bell -->
+        <!-- Notification bell (Compact) -->
         <button [ngClass]="isDarkMode() ? 'text-slate-400 hover:text-white' : 'text-slate-500 hover:text-slate-900'" class="relative p-1 transition-colors cursor-pointer">
-          <div class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-orange-500"></div>
-          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div class="absolute top-1 right-1 w-1.5 h-1.5 rounded-full bg-orange-500"></div>
+          <svg class="w-4.5 h-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
           </svg>
         </button>
@@ -182,10 +181,10 @@
           [ngClass]="isDarkMode() ? 'text-amber-400' : 'text-slate-500 hover:text-slate-900'"
           class="p-1 transition-all cursor-pointer"
         >
-          <svg *ngIf="isDarkMode()" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg *ngIf="isDarkMode()" class="w-4.5 h-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
           </svg>
-          <svg *ngIf="!isDarkMode()" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg *ngIf="!isDarkMode()" class="w-4.5 h-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
           </svg>
         </button>
@@ -195,26 +194,26 @@
     <!-- MOBILE HEADER (Shown on Mobile only) -->
     <header 
       [ngClass]="isDarkMode() ? 'bg-slate-950/95 border-slate-900' : 'bg-white border-slate-200'"
-      class="flex md:hidden items-center justify-between px-6 py-4 border-b transition-colors duration-300 sticky top-0 z-40 backdrop-blur-md shadow-sm"
+      class="flex md:hidden items-center justify-between px-5 py-3 border-b transition-colors duration-300 sticky top-0 z-40 backdrop-blur-md shadow-sm"
     >
-      <div class="flex items-center gap-3">
+      <div class="flex items-center gap-2.5">
         <!-- Avatar User -->
-        <div class="w-9 h-9 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center text-xs shadow-inner">
+        <div class="w-8 h-8 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center text-[10px] shadow-inner">
           RC
         </div>
         <!-- User Info -->
         <div class="flex flex-col">
-          <span [ngClass]="isDarkMode() ? 'text-slate-100' : 'text-slate-800'" class="text-xs font-bold tracking-tight">{{ username() }}</span>
-          <span class="text-[9px] text-slate-400 font-medium">Personal Finance</span>
+          <span [ngClass]="isDarkMode() ? 'text-slate-100' : 'text-slate-800'" class="text-[11px] font-bold tracking-tight">{{ username() }}</span>
+          <span class="text-[8px] text-slate-400 font-medium">Personal Finance</span>
         </div>
       </div>
 
       <!-- Right mobile controls -->
-      <div class="flex items-center gap-4">
+      <div class="flex items-center gap-3.5">
         <!-- Notification bell -->
         <button [ngClass]="isDarkMode() ? 'text-slate-400 hover:text-white' : 'text-slate-500 hover:text-slate-900'" class="relative p-1 cursor-pointer">
-          <div class="absolute top-1 right-1 w-2 h-2 rounded-full bg-orange-500 border border-white"></div>
-          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div class="absolute top-1 right-1 w-1.5 h-1.5 rounded-full bg-orange-500 border border-white"></div>
+          <svg class="w-4.5 h-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
           </svg>
         </button>
@@ -225,41 +224,41 @@
           [ngClass]="isDarkMode() ? 'text-amber-400' : 'text-slate-500 hover:text-slate-900'"
           class="p-1 cursor-pointer"
         >
-          <svg *ngIf="isDarkMode()" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg *ngIf="isDarkMode()" class="w-4.5 h-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
           </svg>
-          <svg *ngIf="!isDarkMode()" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg *ngIf="!isDarkMode()" class="w-4.5 h-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
           </svg>
         </button>
       </div>
     </header>
 
-    <!-- CONTENT WRAPPER -->
-    <main class="flex-grow p-6 md:p-8 space-y-8 overflow-y-auto">
+    <!-- CONTENT WRAPPER (Compact Padding p-5) -->
+    <main class="flex-grow p-5 md:p-6 space-y-6 overflow-y-auto">
       
       <!-- ================= SECTION: OVERVIEW / DASHBOARD ================= -->
-      <div *ngIf="activeTab() === 'dashboard'" class="space-y-8">
+      <div *ngIf="activeTab() === 'dashboard'" class="space-y-6">
         
-        <!-- Header System Info -->
-        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <!-- Header System Info (Compact) -->
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
           <div>
-            <h2 [ngClass]="isDarkMode() ? 'text-slate-100' : 'text-slate-900'" class="text-2xl font-bold tracking-tight font-serif flex items-center gap-3">
+            <h2 [ngClass]="isDarkMode() ? 'text-slate-100' : 'text-slate-900'" class="text-xl font-bold tracking-tight font-serif flex items-center gap-3">
               Dashboard Keuangan
             </h2>
-            <p class="text-xs opacity-60 mt-1">Kelola strategi 3-dompet, pantau dana tabungan vault, dan agregat arus kas.</p>
+            <p class="text-[11px] opacity-60 mt-0.5">Kelola strategi 3-dompet, pantau dana tabungan vault, dan agregat arus kas.</p>
           </div>
         </div>
 
-        <!-- Top Widgets (Wealth & Goal) -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Top Widgets (Compact p-4, border-t-2) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
           <!-- Total Wealth Widget -->
-          <div [ngClass]="isDarkMode() ? 'bg-slate-900/40 border-slate-900/40' : 'bg-white border-slate-250'" class="md:col-span-1 border border-t-4 border-t-blue-500 rounded-2xl p-6 shadow-md relative overflow-hidden transition-all duration-300">
-            <div class="absolute -right-10 -bottom-10 w-32 h-32 bg-blue-500/5 rounded-full blur-3xl"></div>
-            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2">Total Kekayaan Anda</span>
-            <h3 [ngClass]="isDarkMode() ? 'text-slate-100' : 'text-slate-900'" class="text-3xl font-extrabold tracking-tight">{{ totalWealth | currency:'IDR':'Rp ':'1.0-0' }}</h3>
-            <p class="text-[11px] opacity-60 mt-4 flex items-center gap-2">
-              <svg class="w-4 h-4 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div [ngClass]="isDarkMode() ? 'bg-slate-900/40 border-slate-900/40' : 'bg-white border-slate-250'" class="md:col-span-1 border border-t-4 border-t-blue-500 rounded-xl p-4 shadow-sm relative overflow-hidden transition-all duration-300">
+            <div class="absolute -right-10 -bottom-10 w-24 h-24 bg-blue-500/5 rounded-full blur-3xl"></div>
+            <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest block mb-1">Total Kekayaan Anda</span>
+            <h3 [ngClass]="isDarkMode() ? 'text-slate-100' : 'text-slate-900'" class="text-2xl font-extrabold tracking-tight">{{ totalWealth | currency:'IDR':'Rp ':'1.0-0' }}</h3>
+            <p class="text-[10px] opacity-60 mt-3 flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               Terakumulasi di 4 rekening aktif
@@ -267,141 +266,141 @@
           </div>
 
           <!-- Savings Target Progress -->
-          <div [ngClass]="isDarkMode() ? 'bg-slate-900/40 border-slate-900/40' : 'bg-white border-slate-250'" class="md:col-span-2 border border-t-4 border-t-blue-500 rounded-2xl p-6 shadow-md flex flex-col justify-between transition-all duration-300">
+          <div [ngClass]="isDarkMode() ? 'bg-slate-900/40 border-slate-900/40' : 'bg-white border-slate-250'" class="md:col-span-2 border border-t-4 border-t-blue-500 rounded-xl p-4 shadow-sm flex flex-col justify-between transition-all duration-300">
             <div>
-              <div class="flex justify-between items-center mb-2">
-                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Savings Vault Target</span>
-                <span class="text-xs font-bold text-blue-500">{{ savingsPercentage }}% Tercapai</span>
+              <div class="flex justify-between items-center mb-1">
+                <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Savings Vault Target</span>
+                <span class="text-[11px] font-bold text-blue-500">{{ savingsPercentage }}% Tercapai</span>
               </div>
-              <h4 [ngClass]="isDarkMode() ? 'text-slate-200' : 'text-slate-800'" class="text-2xl font-bold">
+              <h4 [ngClass]="isDarkMode() ? 'text-slate-200' : 'text-slate-800'" class="text-xl font-bold">
                 {{ totalSavings | currency:'IDR':'Rp ':'1.0-0' }} 
-                <span class="text-xs font-normal text-slate-400">/ {{ savingsTarget | currency:'IDR':'Rp ':'1.0-0' }}</span>
+                <span class="text-[11px] font-normal text-slate-400">/ {{ savingsTarget | currency:'IDR':'Rp ':'1.0-0' }}</span>
               </h4>
             </div>
             
-            <div class="mt-4">
-              <div class="w-full bg-slate-800/20 dark:bg-slate-850 rounded-full h-2.5 overflow-hidden border dark:border-slate-800">
+            <div class="mt-3">
+              <div class="w-full bg-slate-800/20 dark:bg-slate-850 rounded-full h-2 overflow-hidden border dark:border-slate-800">
                 <div class="bg-gradient-to-r from-blue-500 to-cyan-400 h-full rounded-full transition-all duration-500" [style.width.%]="savingsPercentage"></div>
               </div>
-              <p class="text-[9px] opacity-50 mt-2">Dihitung otomatis dari saldo akun khusus tabungan (Seabank)</p>
+              <p class="text-[8px] opacity-50 mt-1">Dihitung otomatis dari saldo akun khusus tabungan (Seabank)</p>
             </div>
           </div>
         </div>
 
         <!-- Aliran Transaksi Bulanan Section (Income, Expense, Mutasi) -->
-        <div class="space-y-4">
+        <div class="space-y-3">
           <div class="flex items-center justify-between">
-            <h3 [ngClass]="isDarkMode() ? 'text-slate-200' : 'text-slate-800'" class="text-sm font-bold uppercase tracking-wider">Aliran Kas Bulan Ini</h3>
-            <span class="bg-blue-500/10 text-blue-500 text-[9px] font-bold px-2 py-0.5 rounded-full border border-blue-500/20 uppercase tracking-wider">3 Kategori</span>
+            <h3 [ngClass]="isDarkMode() ? 'text-slate-200' : 'text-slate-800'" class="text-xs font-bold uppercase tracking-wider">Aliran Kas Bulan Ini</h3>
+            <span class="bg-blue-500/10 text-blue-500 text-[8px] font-bold px-2 py-0.5 rounded-full border border-blue-500/20 uppercase tracking-wider">3 Kategori</span>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
             <!-- Income Card -->
             <div 
               [ngClass]="isDarkMode() ? 'bg-slate-900/30 border-slate-900/40 hover:border-slate-800' : 'bg-white border-slate-250 hover:border-slate-300'"
-              class="border border-t-4 border-t-emerald-500 rounded-2xl p-5 transition-all duration-200 group flex flex-col justify-between relative overflow-hidden shadow-sm"
+              class="border border-t-4 border-t-emerald-500 rounded-xl p-4 transition-all duration-200 group flex flex-col justify-between relative overflow-hidden shadow-sm"
             >
               <div>
-                <div class="flex justify-between items-start mb-4">
-                  <span class="text-[9px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-md border bg-emerald-500/10 text-emerald-550 border-emerald-500/20">
+                <div class="flex justify-between items-start mb-3">
+                  <span class="text-[8px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-md border bg-emerald-500/10 text-emerald-550 border-emerald-500/20">
                     Pemasukan
                   </span>
-                  <svg class="w-4 h-4 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg class="w-3.5 h-3.5 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
                   </svg>
                 </div>
 
-                <h4 [ngClass]="isDarkMode() ? 'text-slate-200' : 'text-slate-800'" class="text-sm font-bold transition-colors">Total Income</h4>
-                <p class="text-[10px] opacity-60 leading-relaxed mt-1 mb-4 h-8 overflow-hidden">Seluruh dana masuk dari gaji, pekerjaan lepas, dan pendapatan pasif.</p>
+                <h4 [ngClass]="isDarkMode() ? 'text-slate-200' : 'text-slate-800'" class="text-xs font-bold transition-colors">Total Income</h4>
+                <p class="text-[9px] opacity-60 leading-relaxed mt-0.5 mb-3 h-8 overflow-hidden">Seluruh dana masuk dari gaji, pekerjaan lepas, dan pendapatan pasif.</p>
               </div>
 
-              <div class="pt-3 border-t border-slate-900/10 dark:border-slate-850">
-                <span class="text-[9px] text-slate-400 uppercase tracking-wider block">Akumulasi Bulan Ini</span>
-                <span class="text-emerald-500 text-lg font-bold">{{ monthlyIncome | currency:'IDR':'Rp ':'1.0-0' }}</span>
+              <div class="pt-2.5 border-t border-slate-900/10 dark:border-slate-850">
+                <span class="text-[8px] text-slate-400 uppercase tracking-wider block">Akumulasi Bulan Ini</span>
+                <span class="text-emerald-500 text-base font-bold">{{ monthlyIncome | currency:'IDR':'Rp ':'1.0-0' }}</span>
               </div>
             </div>
 
             <!-- Expense Card -->
             <div 
               [ngClass]="isDarkMode() ? 'bg-slate-900/30 border-slate-900/40 hover:border-slate-800' : 'bg-white border-slate-250 hover:border-slate-300'"
-              class="border border-t-4 border-t-rose-500 rounded-2xl p-5 transition-all duration-200 group flex flex-col justify-between relative overflow-hidden shadow-sm"
+              class="border border-t-4 border-t-rose-500 rounded-xl p-4 transition-all duration-200 group flex flex-col justify-between relative overflow-hidden shadow-sm"
             >
               <div>
-                <div class="flex justify-between items-start mb-4">
-                  <span class="text-[9px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-md border bg-rose-500/10 text-rose-550 border-rose-500/20">
+                <div class="flex justify-between items-start mb-3">
+                  <span class="text-[8px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-md border bg-rose-500/10 text-rose-550 border-rose-500/20">
                     Pengeluaran
                   </span>
-                  <svg class="w-4 h-4 text-rose-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg class="w-3.5 h-3.5 text-rose-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                   </svg>
                 </div>
 
-                <h4 [ngClass]="isDarkMode() ? 'text-slate-200' : 'text-slate-800'" class="text-sm font-bold transition-colors">Total Expense</h4>
-                <p class="text-[10px] opacity-60 leading-relaxed mt-1 mb-4 h-8 overflow-hidden">Jumlah penarikan keluar untuk tagihan, belanja bulanan, dan kebutuhan pokok.</p>
+                <h4 [ngClass]="isDarkMode() ? 'text-slate-200' : 'text-slate-800'" class="text-xs font-bold transition-colors">Total Expense</h4>
+                <p class="text-[9px] opacity-60 leading-relaxed mt-0.5 mb-3 h-8 overflow-hidden">Jumlah penarikan keluar untuk tagihan, belanja bulanan, dan kebutuhan pokok.</p>
               </div>
 
-              <div class="pt-3 border-t border-slate-900/10 dark:border-slate-850">
-                <span class="text-[9px] text-slate-400 uppercase tracking-wider block">Akumulasi Bulan Ini</span>
-                <span class="text-rose-500 text-lg font-bold">{{ monthlyExpense | currency:'IDR':'Rp ':'1.0-0' }}</span>
+              <div class="pt-2.5 border-t border-slate-900/10 dark:border-slate-850">
+                <span class="text-[8px] text-slate-400 uppercase tracking-wider block">Akumulasi Bulan Ini</span>
+                <span class="text-rose-500 text-base font-bold">{{ monthlyExpense | currency:'IDR':'Rp ':'1.0-0' }}</span>
               </div>
             </div>
 
             <!-- Mutation Card -->
             <div 
               [ngClass]="isDarkMode() ? 'bg-slate-900/30 border-slate-900/40 hover:border-slate-800' : 'bg-white border-slate-250 hover:border-slate-300'"
-              class="border border-t-4 border-t-amber-500 rounded-2xl p-5 transition-all duration-200 group flex flex-col justify-between relative overflow-hidden shadow-sm"
+              class="border border-t-4 border-t-amber-500 rounded-xl p-4 transition-all duration-200 group flex flex-col justify-between relative overflow-hidden shadow-sm"
             >
               <div>
-                <div class="flex justify-between items-start mb-4">
-                  <span class="text-[9px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-md border bg-amber-500/10 text-amber-550 border-amber-500/20">
+                <div class="flex justify-between items-start mb-3">
+                  <span class="text-[8px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-md border bg-amber-500/10 text-amber-550 border-amber-500/20">
                     Mutasi Saldo
                   </span>
-                  <svg class="w-4 h-4 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg class="w-3.5 h-3.5 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
                   </svg>
                 </div>
 
-                <h4 [ngClass]="isDarkMode() ? 'text-slate-200' : 'text-slate-800'" class="text-sm font-bold transition-colors">Total Mutasi</h4>
-                <p class="text-[10px] opacity-60 leading-relaxed mt-1 mb-4 h-8 overflow-hidden">Pemindahan dana internal antar-rekening terdaftar milik Anda.</p>
+                <h4 [ngClass]="isDarkMode() ? 'text-slate-200' : 'text-slate-800'" class="text-xs font-bold transition-colors">Total Mutasi</h4>
+                <p class="text-[9px] opacity-60 leading-relaxed mt-0.5 mb-3 h-8 overflow-hidden">Pemindahan dana internal antar-rekening terdaftar milik Anda.</p>
               </div>
 
-              <div class="pt-3 border-t border-slate-900/10 dark:border-slate-850">
-                <span class="text-[9px] text-slate-400 uppercase tracking-wider block">Alokasi Bulan Ini</span>
-                <span class="text-amber-550 text-lg font-bold">{{ monthlyMutation | currency:'IDR':'Rp ':'1.0-0' }}</span>
+              <div class="pt-2.5 border-t border-slate-900/10 dark:border-slate-850">
+                <span class="text-[8px] text-slate-400 uppercase tracking-wider block">Alokasi Bulan Ini</span>
+                <span class="text-amber-550 text-base font-bold">{{ monthlyMutation | currency:'IDR':'Rp ':'1.0-0' }}</span>
               </div>
             </div>
           </div>
         </div>
 
         <!-- Charts & Transactions Section -->
-        <div class="grid grid-cols-1 lg:grid-cols-5 gap-6">
-          <!-- Graph -->
-          <div [ngClass]="isDarkMode() ? 'bg-slate-900/30 border-slate-900/40' : 'bg-white border-slate-250'" class="lg:col-span-3 border border-t-4 border-t-blue-500 rounded-2xl p-6 shadow-md flex flex-col justify-between min-h-[350px] transition-colors duration-300">
+        <div class="grid grid-cols-1 lg:grid-cols-5 gap-5">
+          <!-- Graph Card (rounded-xl, border-t-4) -->
+          <div [ngClass]="isDarkMode() ? 'bg-slate-900/30 border-slate-900/40' : 'bg-white border-slate-250'" class="lg:col-span-3 border border-t-4 border-t-blue-500 rounded-xl p-4 shadow-sm flex flex-col justify-between min-h-[320px] transition-colors duration-300">
             <div>
-              <h3 [ngClass]="isDarkMode() ? 'text-slate-200' : 'text-slate-800'" class="text-sm font-bold uppercase tracking-wider">Grafik Arus Kas Bulanan</h3>
-              <p class="text-[10px] opacity-60 mt-0.5">Perbandingan agregat pemasukan vs pengeluaran bulanan</p>
+              <h3 [ngClass]="isDarkMode() ? 'text-slate-200' : 'text-slate-800'" class="text-xs font-bold uppercase tracking-wider">Grafik Arus Kas Bulanan</h3>
+              <p class="text-[9px] opacity-60 mt-0.5">Perbandingan agregat pemasukan vs pengeluaran bulanan</p>
             </div>
-            <div class="relative w-full h-[240px] mt-4">
+            <div class="relative w-full h-[220px] mt-3">
               <canvas #cashflowChart></canvas>
             </div>
           </div>
 
-          <!-- Transaction List -->
-          <div [ngClass]="isDarkMode() ? 'bg-slate-900/30 border-slate-900/40' : 'bg-white border-slate-250'" class="lg:col-span-2 border border-t-4 border-t-blue-500 rounded-2xl p-6 shadow-md flex flex-col justify-between min-h-[350px] transition-colors duration-300">
+          <!-- Transaction List Card (rounded-xl, border-t-4, p-4) -->
+          <div [ngClass]="isDarkMode() ? 'bg-slate-900/30 border-slate-900/40' : 'bg-white border-slate-250'" class="lg:col-span-2 border border-t-4 border-t-blue-500 rounded-xl p-4 shadow-sm flex flex-col justify-between min-h-[320px] transition-colors duration-300">
             <div>
-              <div class="flex items-center justify-between mb-4">
-                <h3 [ngClass]="isDarkMode() ? 'text-slate-200' : 'text-slate-800'" class="text-sm font-bold uppercase tracking-wider">Transaksi Terakhir</h3>
-                <span (click)="setActiveTab('transaksi')" class="text-xs text-blue-500 hover:underline cursor-pointer font-semibold font-serif">Lihat Semua</span>
+              <div class="flex items-center justify-between mb-3">
+                <h3 [ngClass]="isDarkMode() ? 'text-slate-200' : 'text-slate-800'" class="text-xs font-bold uppercase tracking-wider">Transaksi Terakhir</h3>
+                <span (click)="setActiveTab('transaksi')" class="text-[11px] text-blue-550 hover:underline cursor-pointer font-semibold font-serif">Lihat Semua</span>
               </div>
 
-              <div class="space-y-3.5">
+              <div class="space-y-2.5">
                 <div 
                   *ngFor="let tx of transactions()" 
                   [ngClass]="isDarkMode() ? 'bg-slate-950/40 border-slate-900' : 'bg-slate-100/50 border-slate-150'"
-                  class="flex items-center justify-between p-3 border rounded-xl hover:scale-[1.01] transition-all duration-150"
+                  class="flex items-center justify-between p-2.5 border rounded-xl hover:scale-[1.01] transition-all duration-150"
                 >
-                  <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 rounded-lg flex items-center justify-center border text-xs"
+                  <div class="flex items-center gap-2.5">
+                    <div class="w-7 h-7 rounded-lg flex items-center justify-center border text-[10px]"
                          [ngClass]="{
                            'bg-emerald-500/10 text-emerald-500 border-emerald-500/20': tx.type === 'INCOME',
                            'bg-rose-500/10 text-rose-500 border-rose-500/20': tx.type === 'EXPENSE',
@@ -411,16 +410,16 @@
                     </div>
                     
                     <div class="min-w-0">
-                      <h4 [ngClass]="isDarkMode() ? 'text-slate-200' : 'text-slate-800'" class="text-xs font-bold truncate w-28 sm:w-32">{{ tx.description }}</h4>
+                      <h4 [ngClass]="isDarkMode() ? 'text-slate-200' : 'text-slate-800'" class="text-[11px] font-bold truncate w-24 sm:w-28">{{ tx.description }}</h4>
                       <div class="flex items-center gap-1.5 mt-0.5">
-                        <span class="text-[9px] text-slate-400">{{ tx.date }}</span>
-                        <span class="text-[8px] uppercase tracking-wider px-1 py-0.25 rounded bg-slate-200/50 dark:bg-slate-900 text-slate-500 dark:text-slate-400 font-semibold">{{ tx.category }}</span>
+                        <span class="text-[8px] text-slate-400">{{ tx.date }}</span>
+                        <span class="text-[7.5px] uppercase tracking-wider px-1 py-0.25 rounded bg-slate-200/50 dark:bg-slate-900 text-slate-500 dark:text-slate-400 font-semibold">{{ tx.category }}</span>
                       </div>
                     </div>
                   </div>
 
                   <div class="text-right">
-                    <span class="text-xs font-bold block"
+                    <span class="text-[11px] font-bold block"
                           [ngClass]="{
                             'text-emerald-500': tx.type === 'INCOME',
                             'text-rose-500': tx.type === 'EXPENSE',
@@ -428,14 +427,14 @@
                           }">
                       {{ tx.type === 'EXPENSE' ? '-' : '' }}{{ tx.amount | currency:'IDR':'':'1.0-0' }}
                     </span>
-                    <span class="text-[9px] text-slate-400 uppercase font-semibold">{{ tx.type === 'INCOME' || tx.type === 'MUTASI' ? tx.dest : tx.source }}</span>
+                    <span class="text-[8px] text-slate-400 uppercase font-semibold">{{ tx.type === 'INCOME' || tx.type === 'MUTASI' ? tx.dest : tx.source }}</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="mt-4 pt-4 border-t border-slate-200/20 text-center">
-              <p class="text-[9px] text-slate-500 font-medium">Mutasi saldo internal tidak mempengaruhi kalkulasi pengeluaran bulanan.</p>
+            <div class="mt-3 pt-3 border-t border-slate-200/20 text-center">
+              <p class="text-[8px] text-slate-500 font-medium">Mutasi saldo internal tidak mempengaruhi kalkulasi pengeluaran bulanan.</p>
             </div>
           </div>
         </div>
@@ -443,31 +442,31 @@
       </div>
 
       <!-- ================= SECTION: DATA REKENING ================= -->
-      <div *ngIf="activeTab() === 'rekening'" class="space-y-6">
+      <div *ngIf="activeTab() === 'rekening'" class="space-y-5">
         <div>
-          <h2 [ngClass]="isDarkMode() ? 'text-slate-100' : 'text-slate-900'" class="text-2xl font-bold tracking-tight font-serif">Data Rekening</h2>
-          <p class="text-xs opacity-60 mt-1">Daftar lengkap rekening fisik perbankan (BANK) dan dompet digital (E-WALLET) milik Anda.</p>
+          <h2 [ngClass]="isDarkMode() ? 'text-slate-100' : 'text-slate-900'" class="text-xl font-bold tracking-tight font-serif">Data Rekening</h2>
+          <p class="text-xs opacity-60 mt-0.5">Daftar lengkap rekening fisik perbankan (BANK) dan dompet digital (E-WALLET) milik Anda.</p>
         </div>
 
-        <div [ngClass]="isDarkMode() ? 'bg-slate-900/30 border-slate-900' : 'bg-white border-slate-200 shadow-sm'" class="border rounded-3xl p-6">
+        <div [ngClass]="isDarkMode() ? 'bg-slate-900/30 border-slate-900/40' : 'bg-white border-slate-250 shadow-sm'" class="border border-t-4 border-t-blue-500 rounded-xl p-4">
           <div class="overflow-x-auto">
-            <table class="w-full text-left text-xs">
+            <table class="w-full text-left text-[11px]">
               <thead>
                 <tr [ngClass]="isDarkMode() ? 'border-slate-800 text-slate-400' : 'border-slate-200 text-slate-550'" class="border-b font-bold uppercase tracking-wider">
-                  <th class="pb-3">Nama Bank/Institusi</th>
-                  <th class="pb-3">Tipe</th>
-                  <th class="pb-3">Fungsi Khusus</th>
-                  <th class="pb-3">Keterangan</th>
-                  <th class="pb-3 text-right">Saldo Saat Ini</th>
+                  <th class="pb-2.5">Nama Bank/Institusi</th>
+                  <th class="pb-2.5">Tipe</th>
+                  <th class="pb-2.5">Fungsi Khusus</th>
+                  <th class="pb-2.5">Keterangan</th>
+                  <th class="pb-2.5 text-right">Saldo Saat Ini</th>
                 </tr>
               </thead>
               <tbody class="divide-y divide-slate-200/10 dark:divide-slate-850">
-                <tr *ngFor="let acc of accounts()" class="hover:bg-slate-100/30 dark:hover:bg-slate-900/20 transition-colors">
-                  <td class="py-4 font-bold text-slate-300 dark:text-slate-200">{{ acc.name }}</td>
-                  <td class="py-4"><span class="px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-800 text-[10px] font-bold">{{ acc.type }}</span></td>
-                  <td class="py-4"><span class="text-blue-500 font-semibold">{{ acc.role }}</span></td>
-                  <td class="py-4 text-slate-400">{{ acc.description }}</td>
-                  <td class="py-4 text-right font-bold">{{ acc.balance | currency:'IDR':'Rp ':'1.0-0' }}</td>
+                <tr *ngFor="let acc of accounts()" class="hover:bg-slate-105/30 dark:hover:bg-slate-900/20 transition-colors">
+                  <td class="py-3 font-bold text-slate-300 dark:text-slate-200">{{ acc.name }}</td>
+                  <td class="py-3"><span class="px-1.5 py-0.25 rounded bg-slate-200 dark:bg-slate-800 text-[9px] font-bold">{{ acc.type }}</span></td>
+                  <td class="py-3"><span class="text-blue-500 font-semibold">{{ acc.role }}</span></td>
+                  <td class="py-3 text-slate-400">{{ acc.description }}</td>
+                  <td class="py-3 text-right font-bold">{{ acc.balance | currency:'IDR':'Rp ':'1.0-0' }}</td>
                 </tr>
               </tbody>
             </table>
@@ -476,43 +475,43 @@
       </div>
 
       <!-- ================= SECTION: TRANSAKSI LOG ================= -->
-      <div *ngIf="activeTab() === 'transaksi'" class="space-y-6">
+      <div *ngIf="activeTab() === 'transaksi'" class="space-y-5">
         <div>
-          <h2 [ngClass]="isDarkMode() ? 'text-slate-100' : 'text-slate-900'" class="text-2xl font-bold tracking-tight font-serif">Riwayat Transaksi Log</h2>
-          <p class="text-xs opacity-60 mt-1">Daftar histori mutasi pergerakan arus kas masuk, pengeluaran harian, dan mutasi internal.</p>
+          <h2 [ngClass]="isDarkMode() ? 'text-slate-100' : 'text-slate-900'" class="text-xl font-bold tracking-tight font-serif">Riwayat Transaksi Log</h2>
+          <p class="text-xs opacity-60 mt-0.5">Daftar histori mutasi pergerakan arus kas masuk, pengeluaran harian, dan mutasi internal.</p>
         </div>
 
-        <div [ngClass]="isDarkMode() ? 'bg-slate-900/30 border-slate-900' : 'bg-white border-slate-200 shadow-sm'" class="border rounded-3xl p-6">
+        <div [ngClass]="isDarkMode() ? 'bg-slate-900/30 border-slate-900/40' : 'bg-white border-slate-250 shadow-sm'" class="border border-t-4 border-t-blue-500 rounded-xl p-4">
           <div class="overflow-x-auto">
-            <table class="w-full text-left text-xs">
+            <table class="w-full text-left text-[11px]">
               <thead>
                 <tr [ngClass]="isDarkMode() ? 'border-slate-800 text-slate-400' : 'border-slate-200 text-slate-550'" class="border-b font-bold uppercase tracking-wider">
-                  <th class="pb-3">Tanggal / Waktu</th>
-                  <th class="pb-3">Keterangan Deskripsi</th>
-                  <th class="pb-3">Tipe</th>
-                  <th class="pb-3">Kategori</th>
-                  <th class="pb-3">Aliran Kas</th>
-                  <th class="pb-3 text-right">Nominal</th>
+                  <th class="pb-2.5">Tanggal / Waktu</th>
+                  <th class="pb-2.5">Keterangan Deskripsi</th>
+                  <th class="pb-2.5">Tipe</th>
+                  <th class="pb-2.5">Kategori</th>
+                  <th class="pb-2.5">Aliran Kas</th>
+                  <th class="pb-2.5 text-right">Nominal</th>
                 </tr>
               </thead>
               <tbody class="divide-y divide-slate-200/10 dark:divide-slate-850">
-                <tr *ngFor="let tx of transactions()" class="hover:bg-slate-100/30 dark:hover:bg-slate-900/20 transition-colors">
-                  <td class="py-4 text-slate-400">{{ tx.date }}</td>
-                  <td class="py-4 font-semibold">{{ tx.description }}</td>
-                  <td class="py-4">
+                <tr *ngFor="let tx of transactions()" class="hover:bg-slate-105/30 dark:hover:bg-slate-900/20 transition-colors">
+                  <td class="py-3 text-slate-400">{{ tx.date }}</td>
+                  <td class="py-3 font-semibold">{{ tx.description }}</td>
+                  <td class="py-3">
                     <span 
                       [ngClass]="{
                         'bg-emerald-500/10 text-emerald-500 border border-emerald-500/20': tx.type === 'INCOME',
                         'bg-rose-500/10 text-rose-500 border border-rose-500/20': tx.type === 'EXPENSE',
                         'bg-amber-500/10 text-amber-500 border border-amber-500/20': tx.type === 'MUTASI'
                       }"
-                      class="px-2 py-0.5 rounded text-[9px] font-bold"
+                      class="px-1.5 py-0.25 rounded text-[8.5px] font-bold"
                     >
                       {{ tx.type }}
                     </span>
                   </td>
-                  <td class="py-4"><span class="px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-800 text-[9px] font-semibold text-slate-500 dark:text-slate-400">{{ tx.category }}</span></td>
-                  <td class="py-4 text-slate-400">
+                  <td class="py-3"><span class="px-1.5 py-0.25 rounded bg-slate-200 dark:bg-slate-800 text-[8.5px] font-semibold text-slate-500 dark:text-slate-400">{{ tx.category }}</span></td>
+                  <td class="py-3 text-slate-400">
                     <span *ngIf="tx.type === 'INCOME'">&rarr; Ke {{ tx.dest }}</span>
                     <span *ngIf="tx.type === 'EXPENSE'">&larr; Dari {{ tx.source }}</span>
                     <span *ngIf="tx.type === 'MUTASI'">Dari {{ tx.source }} ke {{ tx.dest }}</span>
@@ -523,7 +522,7 @@
                       'text-rose-500': tx.type === 'EXPENSE',
                       'text-amber-500': tx.type === 'MUTASI'
                     }"
-                    class="py-4 text-right font-bold text-sm"
+                    class="py-3 text-right font-bold text-xs"
                   >
                     {{ tx.type === 'EXPENSE' ? '-' : '' }}{{ tx.amount | currency:'IDR':'Rp ':'1.0-0' }}
                   </td>
@@ -535,52 +534,52 @@
       </div>
 
       <!-- ================= SECTION: ANALITIK GRAFIK ================= -->
-      <div *ngIf="activeTab() === 'analitik'" class="space-y-6">
+      <div *ngIf="activeTab() === 'analitik'" class="space-y-5">
         <div>
-          <h2 [ngClass]="isDarkMode() ? 'text-slate-100' : 'text-slate-900'" class="text-2xl font-bold tracking-tight font-serif">Analitik Grafik & Statistik</h2>
-          <p class="text-xs opacity-60 mt-1">Laporan makro keuangan, analisis per-rekening, dan presentase alokasi dana.</p>
+          <h2 [ngClass]="isDarkMode() ? 'text-xl text-slate-100' : 'text-xl text-slate-900'" class="font-bold tracking-tight font-serif">Analitik Grafik & Statistik</h2>
+          <p class="text-xs opacity-60 mt-0.5">Laporan makro keuangan, analisis per-rekening, dan presentase alokasi dana.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div [ngClass]="isDarkMode() ? 'bg-slate-900/30 border-slate-900' : 'bg-white border-slate-200 shadow-sm'" class="border rounded-3xl p-6">
-            <h3 class="text-sm font-bold uppercase tracking-wider mb-4">Total Aset Tabungan</h3>
-            <div class="h-64 flex items-center justify-center border border-dashed border-slate-700/30 rounded-2xl">
-              <span class="text-xs opacity-50">Grafik Distribusi Bank vs E-Wallet (Segera Datang)</span>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div [ngClass]="isDarkMode() ? 'bg-slate-900/30 border-slate-900/40' : 'bg-white border-slate-250 shadow-sm'" class="border border-t-4 border-t-blue-500 rounded-xl p-4">
+            <h3 class="text-xs font-bold uppercase tracking-wider mb-3">Total Aset Tabungan</h3>
+            <div class="h-56 flex items-center justify-center border border-dashed border-slate-700/30 rounded-lg">
+              <span class="text-[11px] opacity-50">Grafik Distribusi Bank vs E-Wallet (Segera Datang)</span>
             </div>
           </div>
-          <div [ngClass]="isDarkMode() ? 'bg-slate-900/30 border-slate-900' : 'bg-white border-slate-200 shadow-sm'" class="border rounded-3xl p-6">
-            <h3 class="text-sm font-bold uppercase tracking-wider mb-4">Analisis Pengeluaran Harian</h3>
-            <div class="h-64 flex items-center justify-center border border-dashed border-slate-700/30 rounded-2xl">
-              <span class="text-xs opacity-50">Grafik Proporsi Kategori Pengeluaran (Segera Datang)</span>
+          <div [ngClass]="isDarkMode() ? 'bg-slate-900/30 border-slate-900/40' : 'bg-white border-slate-250 shadow-sm'" class="border border-t-4 border-t-blue-500 rounded-xl p-4">
+            <h3 class="text-xs font-bold uppercase tracking-wider mb-3">Analisis Pengeluaran Harian</h3>
+            <div class="h-56 flex items-center justify-center border border-dashed border-slate-700/30 rounded-lg">
+              <span class="text-[11px] opacity-50">Grafik Proporsi Kategori Pengeluaran (Segera Datang)</span>
             </div>
           </div>
         </div>
       </div>
 
       <!-- ================= SECTION: PROFIL SETTINGS ================= -->
-      <div *ngIf="activeTab() === 'profile'" class="space-y-6">
+      <div *ngIf="activeTab() === 'profile'" class="space-y-5">
         <div>
-          <h2 [ngClass]="isDarkMode() ? 'text-slate-100' : 'text-slate-900'" class="text-2xl font-bold tracking-tight font-serif">Profil Pengguna</h2>
-          <p class="text-xs opacity-60 mt-1">Detail akun administrator dan konfigurasi preferensi aplikasi.</p>
+          <h2 [ngClass]="isDarkMode() ? 'text-slate-100' : 'text-slate-900'" class="text-xl font-bold tracking-tight font-serif">Profil Pengguna</h2>
+          <p class="text-xs opacity-60 mt-0.5">Detail akun administrator dan konfigurasi preferensi aplikasi.</p>
         </div>
 
-        <div [ngClass]="isDarkMode() ? 'bg-slate-900/30 border-slate-900' : 'bg-white border-slate-200 shadow-sm'" class="border rounded-3xl p-6 max-w-md">
-          <div class="flex flex-col items-center text-center space-y-4">
-            <div class="w-20 h-20 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center text-2xl shadow-lg shadow-blue-500/10">
+        <div [ngClass]="isDarkMode() ? 'bg-slate-900/30 border-slate-900/40' : 'bg-white border-slate-250 shadow-sm'" class="border border-t-4 border-t-blue-500 rounded-xl p-4 max-w-sm">
+          <div class="flex flex-col items-center text-center space-y-3.5">
+            <div class="w-16 h-16 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center text-xl shadow-md shadow-blue-500/10">
               RC
             </div>
             <div>
-              <h3 [ngClass]="isDarkMode() ? 'text-slate-100' : 'text-slate-900'" class="text-lg font-bold">{{ username() }}</h3>
-              <p class="text-xs text-slate-400">rizky@myfinance.com | Personal Planner</p>
+              <h3 [ngClass]="isDarkMode() ? 'text-slate-100' : 'text-slate-900'" class="text-base font-bold">{{ username() }}</h3>
+              <p class="text-[11px] text-slate-400">rizky@myfinance.com | Personal Planner</p>
             </div>
-            <div class="w-full pt-4 border-t border-slate-200/10 dark:border-slate-850 space-y-2 text-left text-xs">
-              <div class="flex justify-between py-1.5"><span class="text-slate-400">Tipe Akun</span><span class="font-bold text-emerald-500">Premium Personal</span></div>
-              <div class="flex justify-between py-1.5"><span class="text-slate-400">Periode Anggaran</span><span class="font-bold text-emerald-500">Agustus 2026</span></div>
-              <div class="flex justify-between py-1.5"><span class="text-slate-400">Sinkronisasi Rekening</span><span class="font-bold text-emerald-500">Terkoneksi (Terkini)</span></div>
+            <div class="w-full pt-3 border-t border-slate-200/10 dark:border-slate-850 space-y-1.5 text-left text-[11px]">
+              <div class="flex justify-between py-1"><span class="text-slate-400">Tipe Akun</span><span class="font-bold text-emerald-500">Premium Personal</span></div>
+              <div class="flex justify-between py-1"><span class="text-slate-400">Periode Anggaran</span><span class="font-bold text-emerald-500">Agustus 2026</span></div>
+              <div class="flex justify-between py-1"><span class="text-slate-400">Sinkronisasi Rekening</span><span class="font-bold text-emerald-500">Terkoneksi (Terkini)</span></div>
             </div>
             <button 
               (click)="onLogout()" 
-              class="w-full mt-4 bg-red-600/10 text-red-500 border border-red-500/20 font-bold py-2.5 rounded-xl text-xs hover:bg-red-600 hover:text-white transition-all cursor-pointer"
+              class="w-full mt-3 bg-red-600/10 text-red-500 border border-red-500/20 font-bold py-2 rounded-xl text-[11px] hover:bg-red-600 hover:text-white transition-all cursor-pointer"
             >
               Keluar Sesi Akun
             </button>
@@ -597,66 +596,66 @@
   <!-- ======================================================= -->
   <nav 
     [ngClass]="isDarkMode() ? 'bg-slate-950/95 border-slate-900' : 'bg-white border-slate-200 shadow-[0_-2px_10px_rgba(0,0,0,0.03)]'"
-    class="fixed bottom-0 left-0 right-0 z-50 md:hidden border-t flex items-center justify-around py-2 transition-all duration-300"
+    class="fixed bottom-0 left-0 right-0 z-50 md:hidden border-t flex items-center justify-around py-1.5 transition-all duration-300"
   >
     <!-- Nav 1: Dashboard -->
     <button 
       (click)="setActiveTab('dashboard')"
       [ngClass]="activeTab() === 'dashboard' ? 'text-blue-500 scale-105' : 'text-slate-400 hover:text-slate-600'"
-      class="flex flex-col items-center gap-1 py-1 cursor-pointer transition-all duration-150"
+      class="flex flex-col items-center gap-0.5 py-1 cursor-pointer transition-all duration-150"
     >
-      <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <svg class="w-4.5 h-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
       </svg>
-      <span class="text-[9px] font-bold">Dashboard</span>
+      <span class="text-[8px] font-bold">Dashboard</span>
     </button>
 
     <!-- Nav 2: Rekening -->
     <button 
       (click)="setActiveTab('rekening')"
       [ngClass]="activeTab() === 'rekening' ? 'text-blue-500 scale-105' : 'text-slate-400 hover:text-slate-600'"
-      class="flex flex-col items-center gap-1 py-1 cursor-pointer transition-all duration-150"
+      class="flex flex-col items-center gap-0.5 py-1 cursor-pointer transition-all duration-150"
     >
-      <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <svg class="w-4.5 h-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
       </svg>
-      <span class="text-[9px] font-bold">Rekening</span>
+      <span class="text-[8px] font-bold">Rekening</span>
     </button>
 
     <!-- Nav 3: Transaksi -->
     <button 
       (click)="setActiveTab('transaksi')"
       [ngClass]="activeTab() === 'transaksi' ? 'text-blue-500 scale-105' : 'text-slate-400 hover:text-slate-600'"
-      class="flex flex-col items-center gap-1 py-1 cursor-pointer transition-all duration-150"
+      class="flex flex-col items-center gap-0.5 py-1 cursor-pointer transition-all duration-150"
     >
-      <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <svg class="w-4.5 h-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
       </svg>
-      <span class="text-[9px] font-bold">Transaksi</span>
+      <span class="text-[8px] font-bold">Transaksi</span>
     </button>
 
     <!-- Nav 4: Analitik -->
     <button 
       (click)="setActiveTab('analitik')"
       [ngClass]="activeTab() === 'analitik' ? 'text-blue-500 scale-105' : 'text-slate-400 hover:text-slate-600'"
-      class="flex flex-col items-center gap-1 py-1 cursor-pointer transition-all duration-150"
+      class="flex flex-col items-center gap-0.5 py-1 cursor-pointer transition-all duration-150"
     >
-      <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <svg class="w-4.5 h-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
       </svg>
-      <span class="text-[9px] font-bold">Analitik</span>
+      <span class="text-[8px] font-bold">Analitik</span>
     </button>
 
     <!-- Nav 5: Profil -->
     <button 
       (click)="setActiveTab('profile')"
       [ngClass]="activeTab() === 'profile' ? 'text-blue-500 scale-105' : 'text-slate-400 hover:text-slate-600'"
-      class="flex flex-col items-center gap-1 py-1 cursor-pointer transition-all duration-150"
+      class="flex flex-col items-center gap-0.5 py-1 cursor-pointer transition-all duration-150"
     >
-      <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <svg class="w-4.5 h-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
       </svg>
-      <span class="text-[9px] font-bold">Profil</span>
+      <span class="text-[8px] font-bold">Profil</span>
     </button>
   </nav>
 
