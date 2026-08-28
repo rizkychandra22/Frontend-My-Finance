@@ -1,59 +1,69 @@
-# AngularFrontend
+# 🌐 My-Finance Angular Frontend (Premium Financial Dashboard)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.5.
+Antarmuka pengguna (*Frontend*) untuk aplikasi **My-Finance**, berupa platform pengelolaan keuangan pribadi modern berbasis **Angular 18+**, **PrimeNG Component Suite**, **Tailwind CSS**, dan **Chart.js**.
 
-## Development server
+> [!IMPORTANT]
+> **Dokumen Spesifikasi Utama:**
+> Untuk memahami detail alur antarmuka, strategi 3-dompet, dan skema analitik visual yang akan dikembangkan:
+> 👉 **[Baca Spesifikasi Lengkap My-Finance](file:///d:/%21%60Learn-Programmer%60/My-Finance/Angular-Frontend/my_finance_specification.md)**
 
-To start a local development server, run:
+---
 
+## 💎 Fitur Utama Antarmuka (UI Features)
+
+1.  **Modul Rekening 3-Kategori (3-Bucket Strategy UI):**
+    Visualisasi kartu rekening interaktif yang dikelompokkan berdasarkan fungsinya:
+    *   *Vault Account* (Seabank/Superbank): Untuk tabungan dana dingin.
+    *   *Daily Pocket* (BCA/Mandiri): Untuk kebutuhan operasional harian.
+    *   *Subscription Pocket* (Bank Jago): Khusus untuk tagihan rutin auto-debit.
+2.  **Form Input Transaksi Pintar 3-Tab:**
+    Formulir dinamis menggunakan komponen `PrimeNG` dengan tab terpisah untuk meminimalkan kesalahan input:
+    *   **Tab INCOME:** Dropdown Kategori Sumber, Kategori Jenis, Tipe Rekening, dan Akun Rekening Tujuan.
+    *   **Tab EXPENSE:** Dropdown Kategori Sumber, Tipe Rekening, dan Akun Rekening Asal (tanpa Kategori Jenis).
+    *   **Tab MUTASI:** Transfer antar-rekening internal (mengurangi Rekening Asal, menambah Rekening Tujuan).
+3.  **Dedicated Savings Progress Tracker:**
+    Komponen indikator kemajuan (*Progress Bar*) visual untuk memantau target nominal tabungan berdasarkan akumulasi saldo pada rekening Vault.
+4.  **Analitik Tingkat Lanjut (Drill-Down Analytics):**
+    Grafik interaktif bertenaga **Chart.js** dengan 3 level analisis:
+    *   *Level 1 (Global Macro View):* Total Wealth & Monthly Cashflow (Pemasukan vs Pengeluaran).
+    *   *Level 2 (Group View):* Distribusi alur dana kelompok BANK vs E-WALLET.
+    *   *Level 3 (Deep Dive):* Breakdown rinci pengeluaran dan histori khusus pada 1 akun rekening tertentu.
+
+---
+
+## 🛠️ Spesifikasi Teknologi (Tech Stack)
+
+*   **Framework:** Angular 18+
+*   **UI Components:** PrimeNG v18+ UI Suite (mendukung tema gelap/terang premium)
+*   **Styling Engine:** Tailwind CSS & Vanilla CSS
+*   **Data Visualization:** Chart.js & PrimeNG Charts
+*   **State & Stream:** RxJS (Reactive Extensions for JavaScript)
+*   **Package Manager:** npm
+
+---
+
+## 🚀 Panduan Menjalankan Aplikasi di Lokal
+
+### 1. Prasyarat (Prerequisites)
+Pastikan komputer Anda sudah terinstal **Node.js** (versi 18 ke atas) dan **Angular CLI**.
+
+### 2. Instalasi Dependensi
+Buka terminal Anda di folder `Angular-Frontend/` ini, lalu ketik perintah:
+```bash
+npm install
+```
+
+### 3. Menjalankan Development Server
+Jalankan server lokal frontend dengan perintah:
+```bash
+npm run start
+```
+Atau:
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Setelah server aktif, buka browser Anda dan akses:
+👉 **`http://localhost:4200/`**
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Aplikasi akan memuat ulang secara otomatis (*live-reload*) setiap kali Anda menyimpan perubahan kode di sisi frontend!
