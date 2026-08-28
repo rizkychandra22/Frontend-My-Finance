@@ -1,3 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import 'tailwindcss';
+
+/* Sembunyikan scrollbar bawaan di perangkat mobile agar terlihat seperti native app */
+@media (max-width: 767px) {
+  ::-webkit-scrollbar {
+    display: none !important;
+  }
+  * {
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+  }
+}
+
+/* Modal Dialog Center Styling & Backdrop Blur (Shadcn Style) */
+dialog {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  margin: 0 !important;
+  border-radius: 12px;
+  outline: none;
+}
+
+dialog::backdrop {
+  background-color: rgba(15, 23, 42, 0.4) !important; /* slate-900 overlay */
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
