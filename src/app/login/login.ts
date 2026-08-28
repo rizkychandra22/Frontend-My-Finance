@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
 export class LoginComponent {
   @Output() readonly loginSuccess = new EventEmitter<void>();
 
-  protected readonly isDarkMode = signal(false);
+  protected readonly isDarkMode = signal(localStorage.getItem('theme') === 'dark');
   protected readonly identifier = signal('');
   protected readonly password = signal('');
   protected readonly errorMessage = signal('');
@@ -20,7 +20,11 @@ export class LoginComponent {
   constructor() {}
 
   protected toggleTheme(): void {
-    this.isDarkMode.update(val => !val);
+    this.isDarkMode.update(val => {
+      const newVal = !val;
+      localStorage.setItem('theme', newVal ? 'dark' : 'light');
+      return newVal;
+    });
   }
 
   protected onLogin(event: Event): void {

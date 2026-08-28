@@ -1,4 +1,4 @@
-import { Component, signal, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, signal, ViewChild, ElementRef, AfterViewInit, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { Chart } from 'chart.js/auto';
@@ -30,16 +30,22 @@ interface Transaction {
   templateUrl: './dashboard.html'
 })
 export class DashboardComponent implements AfterViewInit {
+  @Output() readonly logoutSuccess = new EventEmitter<void>();
+
   @ViewChild('cashflowChart') private cashflowChartCanvas!: ElementRef<HTMLCanvasElement>;
   private chart?: Chart;
 
   protected readonly username = signal(localStorage.getItem('username') || 'Guest');
-  protected readonly isDarkMode = signal(false);
-  protected readonly activeTab = signal('dashboard'); // 'dashboard' | 'rekening' | 'transaksi' | 'analitik' | 'profile'
+  protected readonly isDarkMode = signal(localStorage.getItem('theme') === 'dark');
+  protected readonly activeTab = signal(localStorage.getItem('activeTab') || 'dashboard'); // 'dashboard' | 'rekening' | 'transaksi' | 'analitik' | 'profile'
   protected readonly isSidebarCollapsed = signal(false);
 
   protected toggleTheme(): void {
-    this.isDarkMode.update(val => !val);
+    this.isDarkMode.update(val => {
+      const newVal = !val;
+      localStorage.setItem('theme', newVal ? 'dark' : 'light');
+      return newVal;
+    });
   }
 
   protected toggleSidebar(): void {
@@ -48,6 +54,7 @@ export class DashboardComponent implements AfterViewInit {
 
   protected setActiveTab(tab: string): void {
     this.activeTab.set(tab);
+    localStorage.setItem('activeTab', tab);
   }
   
   // Mock Data Rekening (3-Bucket Strategy)
@@ -223,7 +230,11 @@ export class DashboardComponent implements AfterViewInit {
   }
 
   protected onLogout(): void {
-    localStorage.clear();
-    this.router.navigate(['/login']);
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('username');
+    localStorage.removeItem('email');
+    localStorage.removeItem('phone');
+    localStorage.removeItem('activeTab');
+    this.logoutSuccess.emit();
   }
 }
