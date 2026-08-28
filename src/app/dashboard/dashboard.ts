@@ -2,6 +2,7 @@ import { Component, signal, ViewChild, ElementRef, AfterViewInit, Output, EventE
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { Chart } from 'chart.js/auto';
+import { FormsModule } from '@angular/forms';
 
 interface Account {
   id: string;
@@ -26,19 +27,27 @@ interface Transaction {
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './dashboard.html'
 })
 export class DashboardComponent implements AfterViewInit {
   @Output() readonly logoutSuccess = new EventEmitter<void>();
 
   @ViewChild('cashflowChart') private cashflowChartCanvas!: ElementRef<HTMLCanvasElement>;
+  @ViewChild('settingsDialog') private settingsDialog!: ElementRef<HTMLDialogElement>;
   private chart?: Chart;
 
-  protected readonly username = signal(localStorage.getItem('username') || 'Guest');
+  protected readonly username = signal(localStorage.getItem('username') || 'Rizky Chandra');
+  protected readonly email = signal(localStorage.getItem('email') || 'test@example.com');
+  protected readonly phone = signal(localStorage.getItem('phone') || '081234567890');
+
   protected readonly isDarkMode = signal(localStorage.getItem('theme') === 'dark');
   protected readonly activeTab = signal(localStorage.getItem('activeTab') || 'dashboard'); // 'dashboard' | 'rekening' | 'transaksi' | 'analitik' | 'profile'
   protected readonly isSidebarCollapsed = signal(false);
+
+  protected editName = '';
+  protected editEmail = '';
+  protected editPhone = '';
 
   protected toggleTheme(): void {
     this.isDarkMode.update(val => {
@@ -55,6 +64,28 @@ export class DashboardComponent implements AfterViewInit {
   protected setActiveTab(tab: string): void {
     this.activeTab.set(tab);
     localStorage.setItem('activeTab', tab);
+  }
+
+  protected openSettingsModal(): void {
+    this.editName = this.username();
+    this.editEmail = this.email();
+    this.editPhone = this.phone();
+    this.settingsDialog.nativeElement.showModal();
+  }
+
+  protected closeSettingsModal(): void {
+    this.settingsDialog.nativeElement.close();
+  }
+
+  protected saveSettings(event: Event): void {
+    event.preventDefault();
+    localStorage.setItem('username', this.editName.trim());
+    localStorage.setItem('email', this.editEmail.trim());
+    localStorage.setItem('phone', this.editPhone.trim());
+    this.username.set(this.editName.trim());
+    this.email.set(this.editEmail.trim());
+    this.phone.set(this.editPhone.trim());
+    this.closeSettingsModal();
   }
   
   // Mock Data Rekening (3-Bucket Strategy)
@@ -175,6 +206,7 @@ export class DashboardComponent implements AfterViewInit {
   }
 
   private initChart(): void {
+    if (!this.cashflowChartCanvas) return;
     const ctx = this.cashflowChartCanvas.nativeElement.getContext('2d');
     if (!ctx) return;
 
