@@ -13,6 +13,18 @@
   }
 }
 
+/* Cegah efek rubber-banding / elastic bounce scroll pada peramban mobile */
+html, body {
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior-y: none !important;
+}
+
+/* Batasi overscroll bounce agar hanya terjadi di kontainer scroll internal */
+main, .overflow-y-auto {
+  overscroll-behavior-y: contain !important;
+}
+
 /* Modal Dialog Center Styling & Backdrop Blur (Shadcn Style) */
 dialog {
   position: fixed !important;
